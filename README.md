@@ -30,3 +30,12 @@ dropbox.request({
 })
 .then(data => console.log(data))
 ```
+
+
+Warning!
+
+The API have not run on old browsers have not support:
+
+* fetch API
+* Promise API
+* Classes declaration
