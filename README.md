@@ -13,7 +13,9 @@ var dropbox = new Dropbox(dropboxConfig);
 
 ```js
 // Step 2: show authenticate dialog and get token (save localStorage in '__db_token')
-dropbox.authenticate()
+dropbox.authenticate().then(token => {
+  console.log(token);
+});
 ```
 
 ```js
