@@ -1,14 +1,14 @@
 # Dropbox SDK for JavaScript
-> unofficial dropbox sdk js for green browsers
+> Unofficial Dropbox SDK for green browsers based on using ES6 syntax
 
 ```js
-import Dropbox from './dropbox-sdk-js.js';
+import Dropbox from './dropbox-sdk.js';
 
 // Make instance config and first call 
 const dropboxConfig = {
   folderName: 'ProstoDiary',
   appKey: 'p106c7q518z3pbd',
-  redirectUri: 'http://localhost:8080'
+  redirectUri: 'http://localhost:8000'
 };
 const dropbox = new Dropbox(dropboxConfig);
 ```
