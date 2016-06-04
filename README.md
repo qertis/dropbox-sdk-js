@@ -6,9 +6,9 @@ import Dropbox from './dropbox-sdk.js';
 
 // Make instance config and first call 
 const dropboxConfig = {
-  folderName: 'ProstoDiary',
-  appKey: 'p106c7q518z3pbd',
-  redirectUri: 'http://localhost:8000'
+  folderName: 'YOUR_FOLDER_NAME',
+  appKey: 'YOUR_APP_KEY',
+  redirectUri: 'YOUR_APP_REDIRECT_URI'//example: http://localhost:8000
 };
 const dropbox = new Dropbox(dropboxConfig);
 ```
