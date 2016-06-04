@@ -1,4 +1,4 @@
-# dropbox-sdk-js
+# Dropbox SDK for JavaScript
 > unofficial dropbox sdk js for green browsers
 
 ```js
