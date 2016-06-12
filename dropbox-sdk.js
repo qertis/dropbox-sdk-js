@@ -1,3 +1,7 @@
+/**
+ * @name dropbox-sdk-js
+ * @author Denis Baskovsky
+ */
 export class Dropbox {
 
   /**
@@ -74,12 +78,15 @@ export class Dropbox {
       // if cordova available use InAppBrowser
       // else use location change
       if (window.cordova && typeof window.cordova === 'object' && cordova.InAppBrowser) {
-        authWindow = cordova.InAppBrowser.open(link, '_blank', windowProperties);
+        authWindow = window.cordova.InAppBrowser.open(link, '_blank', windowProperties);
       } else {
         authWindow = window.open(link, '_blank', windowProperties);
       }
 
       authWindow.addEventListener('loadstart', loadstart);
+      authWindow.onhashchange = () => {
+        console.log('test');
+      };
 
       function loadstart(e) {
         const url = e.url;
@@ -134,7 +141,7 @@ export class Dropbox {
 
   /**
    * Загрузка файлов
-   * @param path
+   * @param path {String}
    * @param rev
    * @returns {Promise.<T>}
    */
@@ -158,8 +165,8 @@ export class Dropbox {
   /**
    * Выгрузка файлов
    * @param body
-   * @param path
-   * @param mode
+   * @param path {String}
+   * @param mode {String}
    * @param autorename
    * @param client_modified
    * @param mute
@@ -226,8 +233,8 @@ export class Dropbox {
 
   /**
    * Генерация метода запроса
-   * @param method {string}
-   * @returns {string}
+   * @param method {String}
+   * @returns {String}
    */
   _generateMethodFrom(method) {
     return method || 'POST';
@@ -279,11 +286,12 @@ export class Dropbox {
     const body = this._generateBodyFrom(params.body);
     const headers = this._generateHeadersFrom(params.headers);
 
-    return fetch(requestURI, {
-      method,
-      headers,
-      body
-    })
+    return fetch(
+      requestURI, {
+        method,
+        headers,
+        body
+      })
       .then(data => {
 
         if (!data.ok) {
@@ -307,7 +315,7 @@ export class Dropbox {
       })
       .then(data => Promise.resolve(data))
       .catch(error => {
-        console.log(error);
+        console.error(error);
         return Promise.reject(error);
       });
   }
