@@ -1,6 +1,8 @@
 /**
  * @name dropbox-sdk-js
  * @author Denis Baskovsky
+ * @licence MIT
+ * @link https://github.com/tewst/dropbox-sdk-js
  */
 export class Dropbox {
 
