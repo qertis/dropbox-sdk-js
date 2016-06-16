@@ -55,6 +55,13 @@ export class Dropbox {
   }
 
   /**
+   * Удаление токена
+   */
+  removeToken() {
+    localStorage.removeItem('__db_token');
+  }
+
+  /**
    * Аутентификация
    * @return {Promise}
    * @public
@@ -68,7 +75,7 @@ export class Dropbox {
       const redirectUri = this.config.redirectUri;
       let authWindow;
 
-      localStorage.removeItem('__db_token');
+      this.removeToken();
 
       const link = `https://www.dropbox.com/1/oauth2/authorize` +
         `?client_id=${ encodeURIComponent(clientId) }` +
@@ -297,7 +304,10 @@ export class Dropbox {
       .then(data => {
 
         if (!data.ok) {
-          throw data.statusText;
+          throw {
+            code: data.status,
+            message: data.statusText
+          };
         }
 
         switch (params.type) {
@@ -317,7 +327,6 @@ export class Dropbox {
       })
       .then(data => Promise.resolve(data))
       .catch(error => {
-        console.error(error);
         return Promise.reject(error);
       });
   }
