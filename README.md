@@ -1,6 +1,13 @@
 # Dropbox SDK for JavaScript
 > Unofficial Dropbox SDK for green browsers based on using ES6 syntax
 
+## Install
+
+```bash
+npm install dbox-sdk --save
+```
+
+## Example
 ```js
 import Dropbox from './dropbox-sdk.js';
 

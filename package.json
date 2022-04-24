@@ -1,0 +1,29 @@
+{
+  "name": "dbox-sdk",
+  "version": "1.0.0",
+  "description": "Unofficial Dropbox SDK for green browsers based on using ES6 syntax",
+  "main": "dropbox-sdk.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "dropbox-sdk.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qertis/dropbox-sdk-js.git"
+  },
+  "keywords": [
+    "dropbox",
+    "sdk",
+    "dropbox-api",
+    "api",
+    "es6"
+  ],
+  "author": "qertis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/qertis/dropbox-sdk-js/issues"
+  },
+  "homepage": "https://github.com/qertis/dropbox-sdk-js#readme"
+}
